@@ -514,7 +514,7 @@ a:hover {
 /* ——— App cards ——— */
 .apps-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 22px;
 }
 
@@ -557,6 +557,18 @@ a:hover {
 
 .app-icon-smile {
   background: linear-gradient(145deg, #ff9f0a, #ff375f);
+}
+
+.app-icon-live {
+  background: linear-gradient(145deg, #34c759, #0a84ff);
+}
+
+.app-icon-nova {
+  background: linear-gradient(145deg, #5e5ce6, #0a84ff);
+}
+
+.app-icon-ultra {
+  background: linear-gradient(145deg, #111111, #6e6e73);
 }
 
 .app-card h3 {
@@ -748,6 +760,20 @@ a:hover {
   color: var(--text-tertiary);
 }
 
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.footer-meta a {
+  color: var(--text-tertiary);
+}
+
+.footer-meta a:hover {
+  color: var(--blue);
+}
+
 /* ——— Reveal animations ——— */
 .reveal {
   opacity: 0;
@@ -848,10 +874,6 @@ a:hover {
 
   .nav-links li:last-child a {
     border-bottom: 0;
-  }
-
-  .apps-grid {
-    grid-template-columns: 1fr;
   }
 
   .hero {
