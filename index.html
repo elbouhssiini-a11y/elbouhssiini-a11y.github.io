@@ -4,134 +4,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Ahmed Elbouhssini | Independent iOS Developer</title>
-
     <meta name="description"
-        content="Official website of Ahmed Elbouhssini. Discover my iOS applications, support, privacy policy and more.">
+        content="Official website of Ahmed Elbouhssini, independent iOS developer. Explore apps for iPhone and iPad, support, privacy policy, and terms.">
+    <meta name="author" content="Ahmed Elbouhssini">
+    <meta name="theme-color" content="#f5f5f7">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://elbouhssiini-a11y.github.io/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elbouhssiini-a11y.github.io/">
+    <meta property="og:title" content="Ahmed Elbouhssini | Independent iOS Developer">
+    <meta property="og:description"
+        content="Building beautiful experiences for iPhone and iPad. Discover apps, support, and developer resources.">
+    <meta property="og:site_name" content="Ahmed Elbouhssini">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Ahmed Elbouhssini | Independent iOS Developer">
+    <meta name="twitter:description"
+        content="Building beautiful experiences for iPhone and iPad. Discover apps, support, and developer resources.">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-<header>
+    <header class="site-header">
+        <nav class="nav" aria-label="Primary">
+            <a class="logo" href="index.html">Ahmed Elbouhssini</a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
+                aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="primary-nav">
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <nav>
+    <main id="main">
+        <section class="hero">
+            <div class="hero-inner reveal">
+                <span class="hero-badge">Independent iOS Developer</span>
+                <h1>
+                    Building beautiful experiences<br>
+                    for <span class="accent">iPhone &amp; iPad</span>.
+                </h1>
+                <p class="hero-copy">
+                    Welcome to my official developer website.
+                    Discover apps crafted with care, plus support and policy resources.
+                </p>
+                <div class="hero-actions">
+                    <a href="apps.html" class="btn btn-primary">View My Apps</a>
+                    <a href="support.html" class="btn btn-secondary">Contact Support</a>
+                </div>
+            </div>
+        </section>
 
-        <div class="logo">
-            Ahmed Elbouhssini
+        <section class="featured" aria-labelledby="featured-heading">
+            <article class="featured-card reveal">
+                <div class="featured-content">
+                    <p class="featured-kicker">Featured App</p>
+                    <h2 id="featured-heading">XO Game</h2>
+                    <p>
+                        A clean, focused take on classic tic-tac-toe —
+                        designed for quick matches and a polished iOS feel.
+                    </p>
+                    <div class="featured-meta">
+                        <span class="chip">iOS</span>
+                        <span class="chip chip-muted">Coming Soon</span>
+                    </div>
+                    <div>
+                        <a href="apps.html" class="btn btn-primary">Explore Apps</a>
+                    </div>
+                </div>
+                <div class="featured-visual" aria-hidden="true">
+                    <div class="phone-mock">
+                        <div class="phone-screen">
+                            <strong>XO Game</strong>
+                            <div class="xo-board">
+                                <div class="xo-cell">X</div>
+                                <div class="xo-cell">O</div>
+                                <div class="xo-cell"></div>
+                                <div class="xo-cell"></div>
+                                <div class="xo-cell">X</div>
+                                <div class="xo-cell">O</div>
+                                <div class="xo-cell">O</div>
+                                <div class="xo-cell"></div>
+                                <div class="xo-cell">X</div>
+                            </div>
+                            <span>Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="section section-tight" id="apps" aria-labelledby="apps-heading">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="section-label">Apps</p>
+                    <h2 class="section-title" id="apps-heading">Made for everyday play</h2>
+                    <p class="section-lead">Current and upcoming applications, designed with clarity and delight.</p>
+                </div>
+                <div class="apps-grid">
+                    <article class="app-card reveal reveal-delay-1">
+                        <div class="app-icon app-icon-xo" aria-hidden="true">XO</div>
+                        <h3>XO Game</h3>
+                        <p>Classic tic-tac-toe with a modern interface and smooth interactions.</p>
+                        <div class="app-card-footer">
+                            <span class="status">Coming Soon</span>
+                            <a class="app-link" href="apps.html">Details</a>
+                        </div>
+                    </article>
+                    <article class="app-card reveal reveal-delay-2">
+                        <div class="app-icon app-icon-smile" aria-hidden="true">Ss</div>
+                        <h3>SillySmile</h3>
+                        <p>A lighthearted experience built to bring a smile — launching soon on the App Store.</p>
+                        <div class="app-card-footer">
+                            <span class="status">Coming Soon</span>
+                            <a class="app-link" href="apps.html">Details</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="resources-heading">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="section-label">Resources</p>
+                    <h2 class="section-title" id="resources-heading">Transparency &amp; support</h2>
+                    <p class="section-lead">Policies and help, always one tap away.</p>
+                </div>
+                <div class="resources-grid">
+                    <a class="resource-card reveal reveal-delay-1" href="privacy-policy.html">
+                        <h3>Privacy Policy</h3>
+                        <p>Learn how your information is handled across my applications.</p>
+                        <span class="more">Read Policy</span>
+                    </a>
+                    <a class="resource-card reveal reveal-delay-2" href="terms.html">
+                        <h3>Terms of Use</h3>
+                        <p>Read the terms that apply when using my applications.</p>
+                        <span class="more">Read Terms</span>
+                    </a>
+                    <a class="resource-card reveal reveal-delay-3" href="support.html">
+                        <h3>Support</h3>
+                        <p>Need help with one of my apps? Reach out anytime.</p>
+                        <span class="more">Contact</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <p class="footer-brand">Ahmed Elbouhssini</p>
+                <p class="footer-tag">Independent iOS Developer</p>
+            </div>
+            <ul class="footer-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="privacy-policy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ahmed Elbouhssini. All rights reserved.</p>
+                <p>Built for GitHub Pages</p>
+            </div>
         </div>
+    </footer>
 
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="apps.html">Apps</a>
-            <a href="privacy-policy.html">Privacy</a>
-            <a href="terms.html">Terms</a>
-            <a href="support.html">Support</a>
-        </div>
-
-    </nav>
-
-</header>
-
-<section class="hero">
-
-    <span class="hero-badge">
-         Independent iOS Developer
-    </span>
-
-    <h1>
-        Building beautiful experiences<br>
-        for iPhone & iPad.
-    </h1>
-
-    <p>
-        Welcome to my official developer website.
-        Here you'll find all my apps, support,
-        privacy information and future projects.
-    </p>
-
-    <div class="hero-buttons">
-
-        <a href="apps.html" class="btn">
-            View My Apps
-        </a>
-
-        <a href="support.html" class="btn secondary">
-            Contact
-        </a>
-
-    </div>
-
-</section>
-
-<section class="grid">
-
-    <div class="card">
-
-        <h2>📱 My Apps</h2>
-
-        <p>
-            Explore current and upcoming iOS applications.
-        </p>
-
-    </div>
-
-    <div class="card">
-
-        <h2>🔒 Privacy Policy</h2>
-
-        <p>
-            Learn how your information is handled.
-        </p>
-
-        <a href="privacy-policy.html">
-            Read Policy →
-        </a>
-
-    </div>
-
-    <div class="card">
-
-        <h2>📜 Terms of Use</h2>
-
-        <p>
-            Read the terms for using my applications.
-        </p>
-
-        <a href="terms.html">
-            Read Terms →
-        </a>
-
-    </div>
-
-    <div class="card">
-
-        <h2>💬 Support</h2>
-
-        <p>
-            Need help with one of my apps?
-        </p>
-
-        <a href="support.html">
-            Contact →
-        </a>
-
-    </div>
-
-</section>
-
-<footer>
-
-    <p>
-        © 2026 Ahmed Elbouhssini
-    </p>
-
-</footer>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
