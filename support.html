@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support | Ahmed Elbouhssini</title>
     <meta name="description"
-        content="Get support for apps by Ahmed Elbouhssini. Contact help for XO Game, SillySmile, and more.">
+        content="Get support for apps by Ahmed Elbouhssini. Contact help for any current or future application.">
     <meta name="author" content="Ahmed Elbouhssini">
     <meta name="theme-color" content="#f5f5f7">
     <meta name="robots" content="index, follow">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .support-main {
-            padding: 64px 22px 96px;
+            padding: 72px 22px 96px;
         }
 
         .support-intro {
@@ -47,8 +47,8 @@
             padding: 40px 36px;
             background: var(--bg-elevated);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.06);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
         }
 
         .support-item + .support-item {
@@ -76,10 +76,17 @@
             letter-spacing: -0.022em;
             color: var(--blue);
             text-decoration: none;
+            transition: color var(--duration) var(--ease);
         }
 
         .support-email:hover {
             color: var(--blue-hover);
+        }
+
+        .support-email:focus-visible {
+            outline: 2px solid var(--blue);
+            outline-offset: 3px;
+            border-radius: 6px;
         }
 
         .support-text {
@@ -92,7 +99,7 @@
 
         @media (max-width: 720px) {
             .support-main {
-                padding: 48px 22px 72px;
+                padding: 56px 22px 72px;
             }
 
             .support-intro {
