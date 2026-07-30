@@ -19,6 +19,19 @@
         content="Browse iOS apps by Ahmed Elbouhssini for iPhone and iPad.">
     <meta property="og:site_name" content="Ahmed Elbouhssini">
 
+    <script>
+        (function () {
+            try {
+                var key = "portfolio-theme";
+                var pref = localStorage.getItem(key) || "system";
+                var resolved = pref === "dark" || (pref !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)
+                    ? "dark"
+                    : "light";
+                document.documentElement.setAttribute("data-theme", resolved);
+                document.documentElement.setAttribute("data-theme-pref", pref);
+            } catch (e) {}
+        })();
+    </script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -28,15 +41,25 @@
     <header class="site-header">
         <nav class="nav" aria-label="Primary">
             <a class="logo" href="index.html">Ahmed Elbouhssini</a>
-            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
-                aria-label="Open menu">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-links" id="primary-nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="apps.html" aria-current="page">Apps</a></li>
-                <li><a href="https://sites.google.com/view/elbouhssini-apps-hub/home" target="_blank" rel="noopener noreferrer">Support</a></li>
-            </ul>
+            <div class="nav-right">
+                <ul class="nav-links" id="primary-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="apps.html" aria-current="page">Apps</a></li>
+                    <li><a href="https://sites.google.com/view/elbouhssini-apps-hub/home" target="_blank" rel="noopener noreferrer">Support</a></li>
+                </ul>
+                <div class="theme-switch">
+                    <label class="visually-hidden" for="theme-select">Appearance</label>
+                    <select id="theme-select" class="theme-select" aria-label="Appearance">
+                        <option value="system">System</option>
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
+                    aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </nav>
     </header>
 
