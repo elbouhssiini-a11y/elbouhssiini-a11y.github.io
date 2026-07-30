@@ -15,21 +15,21 @@ html[data-theme="light"] {
   --blue-soft: rgba(0, 113, 227, 0.08);
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.05);
   --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.06), 0 16px 36px rgba(0, 0, 0, 0.08);
-  --nav-bg: rgba(251, 251, 253, 0.78);
-  --nav-bg-scrolled: rgba(251, 251, 253, 0.9);
+  --nav-bg: rgba(251, 251, 253, 0.72);
+  --nav-bg-scrolled: rgba(251, 251, 253, 0.86);
   --nav-bg-mobile: rgba(251, 251, 253, 0.96);
   --control-hover: rgba(0, 0, 0, 0.04);
   --chip-muted-bg: #f0f0f2;
   --hero-accent: linear-gradient(90deg, #1d1d1f 0%, #3a3a3c 50%, #0071e3 100%);
-  --hero-glow:
-    radial-gradient(ellipse at 50% 0%, rgba(0, 113, 227, 0.1), transparent 62%),
-    radial-gradient(ellipse at 20% 50%, rgba(90, 200, 250, 0.07), transparent 52%),
-    radial-gradient(ellipse at 80% 35%, rgba(0, 199, 190, 0.05), transparent 50%);
+  --hero-glow: radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 60%);
+  --icon-glow: radial-gradient(circle, rgba(59, 130, 246, 0.22), transparent 68%);
   --featured-visual:
     radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.9), transparent 55%),
     linear-gradient(160deg, #eef1f5 0%, #e7ebf2 48%, #dde4ee 100%);
   --btn-primary-shadow: 0 1px 2px rgba(0, 113, 227, 0.18);
-  --btn-primary-shadow-hover: 0 4px 14px rgba(0, 113, 227, 0.28);
+  --btn-primary-shadow-hover: 0 6px 18px rgba(0, 113, 227, 0.28);
+  --btn-primary-shadow-active: 0 1px 2px rgba(0, 113, 227, 0.2);
+  --shadow-card-hover: 0 8px 20px rgba(0, 0, 0, 0.08), 0 20px 40px rgba(0, 0, 0, 0.1);
   --theme-select-bg: rgba(255, 255, 255, 0.85);
   --radius: 24px;
   --radius-sm: 14px;
@@ -59,21 +59,21 @@ html[data-theme="dark"] {
   --blue-soft: rgba(10, 132, 255, 0.16);
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.35);
   --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.4), 0 16px 36px rgba(0, 0, 0, 0.45);
-  --nav-bg: rgba(11, 11, 12, 0.78);
-  --nav-bg-scrolled: rgba(11, 11, 12, 0.92);
+  --nav-bg: rgba(11, 11, 12, 0.72);
+  --nav-bg-scrolled: rgba(11, 11, 12, 0.88);
   --nav-bg-mobile: rgba(17, 17, 17, 0.96);
   --control-hover: rgba(255, 255, 255, 0.08);
   --chip-muted-bg: #2c2c2e;
   --hero-accent: linear-gradient(90deg, #f5f5f7 0%, #d2d2d7 45%, #0a84ff 100%);
-  --hero-glow:
-    radial-gradient(ellipse at 50% 0%, rgba(10, 132, 255, 0.18), transparent 62%),
-    radial-gradient(ellipse at 20% 50%, rgba(90, 200, 250, 0.08), transparent 52%),
-    radial-gradient(ellipse at 80% 35%, rgba(94, 92, 230, 0.08), transparent 50%);
+  --hero-glow: radial-gradient(circle at top, rgba(59, 130, 246, 0.16), transparent 60%);
+  --icon-glow: radial-gradient(circle, rgba(59, 130, 246, 0.28), transparent 68%);
   --featured-visual:
     radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.05), transparent 55%),
     linear-gradient(160deg, #17171a 0%, #141416 48%, #101012 100%);
   --btn-primary-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
-  --btn-primary-shadow-hover: 0 4px 14px rgba(10, 132, 255, 0.28);
+  --btn-primary-shadow-hover: 0 6px 18px rgba(10, 132, 255, 0.28);
+  --btn-primary-shadow-active: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover: 0 8px 20px rgba(0, 0, 0, 0.4), 0 20px 40px rgba(0, 0, 0, 0.45);
   --theme-select-bg: rgba(27, 27, 29, 0.92);
 }
 
@@ -166,17 +166,18 @@ a:hover {
   z-index: 100;
   height: var(--nav-h);
   background: var(--nav-bg);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid transparent;
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--border);
   transition:
     border-color var(--duration) var(--ease),
-    background var(--theme-duration) var(--ease);
+    background var(--theme-duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
 }
 
 .site-header.is-scrolled {
-  border-bottom-color: var(--border);
   background: var(--nav-bg-scrolled);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
 }
 
 .nav {
@@ -219,19 +220,37 @@ a:hover {
 }
 
 .nav-links a {
+  position: relative;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: -0.01em;
   color: var(--text);
   opacity: 0.88;
   text-decoration: none;
+  padding: 6px 0;
   transition: opacity var(--duration) var(--ease), color var(--duration) var(--ease);
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+  opacity: 1;
+  color: var(--blue);
+}
+
 .nav-links a[aria-current="page"] {
   opacity: 1;
   color: var(--blue);
+}
+
+.nav-links a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  border-radius: 2px;
+  background: var(--blue);
+  opacity: 0.9;
 }
 
 .nav-toggle {
@@ -391,8 +410,8 @@ html[data-theme="dark"] .theme-select:hover {
 .hero::before {
   content: "";
   position: absolute;
-  inset: -18% 8% auto;
-  height: 58%;
+  inset: -10% 0 auto;
+  height: 70%;
   background: var(--hero-glow);
   pointer-events: none;
   z-index: 0;
@@ -469,10 +488,10 @@ html[data-theme="dark"] .theme-select:hover {
   border: none;
   cursor: pointer;
   transition:
-    transform var(--duration) var(--ease-out),
-    background var(--duration) var(--ease),
-    box-shadow var(--duration) var(--ease),
-    color var(--duration) var(--ease);
+    transform 0.25s var(--ease-out),
+    background 0.25s var(--ease),
+    box-shadow 0.25s var(--ease),
+    color 0.25s var(--ease);
 }
 
 .btn:focus-visible {
@@ -488,12 +507,13 @@ html[data-theme="dark"] .theme-select:hover {
 .btn-primary:hover {
   background: var(--blue-hover);
   color: #fff;
-  transform: scale(1.015);
+  transform: translateY(-1px);
   box-shadow: var(--btn-primary-shadow-hover);
 }
 
 .btn-primary:active {
-  transform: scale(0.985);
+  transform: translateY(0) scale(0.98);
+  box-shadow: var(--btn-primary-shadow-active);
 }
 
 .btn-secondary {
@@ -511,6 +531,10 @@ html[data-theme="dark"] .theme-select:hover {
   text-decoration-thickness: 1px;
 }
 
+.btn-secondary:active {
+  opacity: 0.82;
+}
+
 .btn-ghost {
   background: var(--bg-elevated);
   color: var(--text);
@@ -522,6 +546,10 @@ html[data-theme="dark"] .theme-select:hover {
   background: var(--bg-elevated);
   box-shadow: var(--shadow);
   transform: translateY(-1px);
+}
+
+.btn-ghost:active {
+  transform: translateY(0) scale(0.98);
 }
 
 /* ——— Featured ——— */
@@ -614,6 +642,18 @@ html[data-theme="dark"] .theme-select:hover {
   transition: background var(--theme-duration) var(--ease);
 }
 
+.featured-visual::before {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: var(--icon-glow);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .featured-app-icon {
   position: relative;
   z-index: 1;
@@ -659,11 +699,17 @@ html[data-theme="dark"] .theme-select:hover {
   display: flex;
   flex-direction: column;
   min-height: 280px;
+  transition:
+    background-color var(--theme-duration) var(--ease),
+    border-color var(--theme-duration) var(--ease),
+    box-shadow 0.25s var(--ease-out),
+    color var(--theme-duration) var(--ease),
+    transform 0.25s var(--ease-out);
 }
 
 .app-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-card-hover);
   border-color: var(--border);
 }
 
@@ -918,7 +964,7 @@ html[data-theme="dark"] .theme-select:hover {
 
 /* ——— Reveal animations ——— */
 html.js .reveal.is-visible {
-  animation: reveal-in 0.65s var(--ease-out) both;
+  animation: reveal-in 0.4s var(--ease-out) both;
 }
 
 html.js .reveal-delay-1.is-visible {
@@ -936,11 +982,11 @@ html.js .reveal-delay-3.is-visible {
 @keyframes reveal-in {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translate3d(0, 20px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -1004,8 +1050,8 @@ html.js .reveal-delay-3.is-visible {
     position: fixed;
     inset: var(--nav-h) 0 auto;
     background: var(--nav-bg-mobile);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     flex-direction: column;
     align-items: stretch;
     gap: 0;
