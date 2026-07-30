@@ -774,27 +774,32 @@ a:hover {
 }
 
 /* ——— Reveal animations ——— */
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+/* Reveal animations — content stays visible; JS only adds a soft entrance */
+html.js .reveal.is-visible {
+  animation: reveal-in 0.7s var(--ease) both;
 }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+html.js .reveal-delay-1.is-visible {
+  animation-delay: 0.08s;
 }
 
-.reveal-delay-1 {
-  transition-delay: 0.08s;
+html.js .reveal-delay-2.is-visible {
+  animation-delay: 0.16s;
 }
 
-.reveal-delay-2 {
-  transition-delay: 0.16s;
+html.js .reveal-delay-3.is-visible {
+  animation-delay: 0.24s;
 }
 
-.reveal-delay-3 {
-  transition-delay: 0.24s;
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -802,10 +807,8 @@ a:hover {
     scroll-behavior: auto;
   }
 
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  html.js .reveal.is-visible {
+    animation: none;
   }
 
   .btn,

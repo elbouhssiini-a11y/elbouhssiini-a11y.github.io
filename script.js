@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  document.documentElement.classList.add("js");
+
   var header = document.querySelector(".site-header");
   var toggle = document.querySelector(".nav-toggle");
   var nav = document.getElementById("primary-nav");
@@ -48,25 +50,48 @@
 
   if (!revealEls.length) return;
 
+  function show(el) {
+    el.classList.add("is-visible");
+  }
+
+  function showAll() {
+    revealEls.forEach(show);
+  }
+
   if (reduceMotion || !("IntersectionObserver" in window)) {
-    revealEls.forEach(function (el) {
-      el.classList.add("is-visible");
-    });
+    showAll();
     return;
   }
+
+  // Reveal anything already in the viewport immediately.
+  revealEls.forEach(function (el) {
+    var rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      show(el);
+    }
+  });
 
   var observer = new IntersectionObserver(
     function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
+        show(entry.target);
         observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    { threshold: 0.01, rootMargin: "0px 0px -8px 0px" }
   );
 
   revealEls.forEach(function (el) {
-    observer.observe(el);
+    if (!el.classList.contains("is-visible")) {
+      observer.observe(el);
+    }
   });
+
+  // Safety net: never leave content hidden.
+  window.setTimeout(function () {
+    revealEls.forEach(function (el) {
+      if (!el.classList.contains("is-visible")) show(el);
+    });
+  }, 1200);
 })();
