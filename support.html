@@ -12,6 +12,103 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://elbouhssiini-a11y.github.io/support.html">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .support-main {
+            padding: 64px 22px 96px;
+        }
+
+        .support-intro {
+            max-width: 720px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+
+        .support-intro h1 {
+            font-size: clamp(48px, 8vw, 72px);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            color: var(--text);
+            margin-bottom: 18px;
+        }
+
+        .support-intro p {
+            max-width: 520px;
+            margin: 0 auto;
+            font-size: clamp(17px, 2.2vw, 21px);
+            line-height: 1.47;
+            letter-spacing: -0.016em;
+            color: var(--text-secondary);
+        }
+
+        .support-card {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 36px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .support-item + .support-item {
+            margin-top: 28px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+        }
+
+        .support-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--text-tertiary);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .support-email {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 0;
+            font-size: clamp(18px, 2.4vw, 22px);
+            font-weight: 600;
+            letter-spacing: -0.022em;
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        .support-email:hover {
+            color: var(--blue-hover);
+        }
+
+        .support-text {
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.47;
+            letter-spacing: -0.016em;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 720px) {
+            .support-main {
+                padding: 48px 22px 72px;
+            }
+
+            .support-intro {
+                margin-bottom: 28px;
+            }
+
+            .support-card {
+                padding: 28px 22px;
+            }
+
+            .support-item + .support-item {
+                margin-top: 22px;
+                padding-top: 22px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -32,26 +129,31 @@
         </nav>
     </header>
 
-    <main id="main">
-        <header class="page-hero reveal">
+    <main id="main" class="support-main">
+        <header class="support-intro reveal">
             <h1>Support</h1>
-            <p>Need help with one of my apps? I am here to help.</p>
+            <p>Need help with one of my apps or projects? Feel free to contact me.</p>
         </header>
 
-        <div class="content-panel reveal">
-            <p>
-                For questions, feedback, or issues related to any application,
-                please reach out by email. Include the app name and a short
-                description of what you need.
-            </p>
-            <p>
+        <section class="support-card reveal" aria-label="Support details">
+            <div class="support-item">
+                <span class="support-label">Email</span>
                 <a class="support-email" href="mailto:elbouhssiini@gmail.com">elbouhssiini@gmail.com</a>
-            </p>
-            <p>
-                Include the app name and a short description of what you need
-                so I can help faster.
-            </p>
-        </div>
+            </div>
+
+            <div class="support-item">
+                <span class="support-label">Response time</span>
+                <p class="support-text">I usually reply within 24–48 hours.</p>
+            </div>
+
+            <div class="support-item">
+                <span class="support-label">Bug reports</span>
+                <p class="support-text">
+                    When reporting a bug, include the app name, your device model,
+                    iOS version, and a short description of what happened.
+                </p>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
