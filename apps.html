@@ -29,6 +29,8 @@
                     : "light";
                 document.documentElement.setAttribute("data-theme", resolved);
                 document.documentElement.setAttribute("data-theme-pref", pref);
+                var themeMeta = document.querySelector('meta[name="theme-color"]');
+                if (themeMeta) themeMeta.setAttribute("content", resolved === "dark" ? "#0b0b0c" : "#f5f5f7");
             } catch (e) {}
         })();
     </script>

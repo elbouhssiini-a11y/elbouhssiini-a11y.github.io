@@ -31,6 +31,11 @@ html[data-theme="light"] {
   --btn-primary-shadow-active: 0 1px 2px rgba(0, 113, 227, 0.2);
   --shadow-card-hover: 0 8px 20px rgba(0, 0, 0, 0.08), 0 20px 40px rgba(0, 0, 0, 0.1);
   --theme-select-bg: rgba(255, 255, 255, 0.85);
+  --header-scrolled-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+  --hero-badge-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --icon-shadow: 0 2px 6px rgba(0, 0, 0, 0.08), 0 16px 36px rgba(0, 0, 0, 0.12);
+  --app-icon-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 10px 24px rgba(0, 0, 0, 0.1);
+  --chip-text: #0071e3;
   --radius: 24px;
   --radius-sm: 14px;
   --radius-icon: 28px;
@@ -48,33 +53,38 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   color-scheme: dark;
   --bg: #0b0b0c;
-  --bg-elevated: #1b1b1d;
-  --bg-soft: #111111;
+  --bg-elevated: #242426;
+  --bg-soft: #161618;
   --text: #f5f5f7;
-  --text-secondary: #a1a1a6;
-  --text-tertiary: #86868b;
-  --border: rgba(255, 255, 255, 0.1);
+  --text-secondary: #c7c7cc;
+  --text-tertiary: #aeaeb2;
+  --border: rgba(255, 255, 255, 0.16);
   --blue: #0a84ff;
   --blue-hover: #409cff;
-  --blue-soft: rgba(10, 132, 255, 0.16);
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.35);
-  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.4), 0 16px 36px rgba(0, 0, 0, 0.45);
+  --blue-soft: rgba(10, 132, 255, 0.28);
+  --shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 28px rgba(0, 0, 0, 0.55);
+  --shadow-hover: 0 1px 0 rgba(255, 255, 255, 0.12), 0 16px 40px rgba(0, 0, 0, 0.6);
   --nav-bg: rgba(11, 11, 12, 0.72);
   --nav-bg-scrolled: rgba(11, 11, 12, 0.88);
-  --nav-bg-mobile: rgba(17, 17, 17, 0.96);
+  --nav-bg-mobile: rgba(22, 22, 24, 0.96);
   --control-hover: rgba(255, 255, 255, 0.08);
-  --chip-muted-bg: #2c2c2e;
+  --chip-muted-bg: #3a3a3c;
   --hero-accent: linear-gradient(90deg, #f5f5f7 0%, #d2d2d7 45%, #0a84ff 100%);
   --hero-glow: radial-gradient(circle at top, rgba(59, 130, 246, 0.16), transparent 60%);
-  --icon-glow: radial-gradient(circle, rgba(59, 130, 246, 0.28), transparent 68%);
+  --icon-glow: radial-gradient(circle, rgba(10, 132, 255, 0.42), transparent 68%);
   --featured-visual:
-    radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.05), transparent 55%),
-    linear-gradient(160deg, #17171a 0%, #141416 48%, #101012 100%);
+    radial-gradient(circle at 50% 42%, rgba(10, 132, 255, 0.22), transparent 55%),
+    linear-gradient(160deg, #323236 0%, #2a2a2e 48%, #222226 100%);
   --btn-primary-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
   --btn-primary-shadow-hover: 0 6px 18px rgba(10, 132, 255, 0.28);
   --btn-primary-shadow-active: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-card-hover: 0 8px 20px rgba(0, 0, 0, 0.4), 0 20px 40px rgba(0, 0, 0, 0.45);
-  --theme-select-bg: rgba(27, 27, 29, 0.92);
+  --shadow-card-hover: 0 1px 0 rgba(255, 255, 255, 0.14), 0 12px 36px rgba(0, 0, 0, 0.6);
+  --theme-select-bg: rgba(36, 36, 38, 0.92);
+  --header-scrolled-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+  --hero-badge-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --icon-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 16px 36px rgba(0, 0, 0, 0.55);
+  --app-icon-shadow: 0 2px 8px rgba(0, 0, 0, 0.45), 0 12px 28px rgba(0, 0, 0, 0.5);
+  --chip-text: #8ac4ff;
 }
 
 *,
@@ -177,7 +187,7 @@ a:hover {
 
 .site-header.is-scrolled {
   background: var(--nav-bg-scrolled);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+  box-shadow: var(--header-scrolled-shadow);
 }
 
 .nav {
@@ -436,7 +446,7 @@ html[data-theme="dark"] .theme-select:hover {
   font-weight: 500;
   color: var(--text-secondary);
   margin-bottom: 28px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--hero-badge-shadow);
 }
 
 .hero h1 {
@@ -582,13 +592,14 @@ html[data-theme="dark"] .theme-select:hover {
   justify-content: center;
 }
 
-.featured-kicker {
+.featured-content .featured-kicker {
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--blue);
+  color: var(--chip-text);
   margin-bottom: 14px;
+  max-width: none;
 }
 
 .featured-content h2 {
@@ -620,7 +631,7 @@ html[data-theme="dark"] .theme-select:hover {
   padding: 6px 12px;
   border-radius: 980px;
   background: var(--blue-soft);
-  color: var(--blue);
+  color: var(--chip-text);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -661,9 +672,7 @@ html[data-theme="dark"] .theme-select:hover {
   height: 140px;
   border-radius: var(--radius-icon);
   object-fit: contain;
-  box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.08),
-    0 16px 36px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--icon-shadow);
 }
 
 /* ——— App cards ——— */
@@ -726,9 +735,7 @@ html[data-theme="dark"] .theme-select:hover {
   object-position: center;
   margin-bottom: 20px;
   background: transparent;
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.06),
-    0 10px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--app-icon-shadow);
 }
 
 .app-card h3 {
