@@ -166,12 +166,18 @@
                     <p class="section-kicker">Selected work</p>
                     <h2 class="section-title" id="work-heading">Products designed and shipped.</h2>
                     <p class="section-lead">Production apps for iPhone, from the interface through to the App Store.</p>
+                    <p class="sync-status" id="sync-status" role="status" hidden>
+                        <span class="visually-hidden">App Store sync status. </span>
+                        <span class="sync-status-dot" aria-hidden="true">●</span>
+                        <span id="sync-status-label"></span>
+                    </p>
                 </header>
 
                 <p class="work-status" id="work-status" role="status">Loading selected work.</p>
                 <div id="work-featured"></div>
                 <div class="case-list" id="work-cases"></div>
                 <noscript>
+                    <p class="sync-status is-unavailable"><span aria-hidden="true">●</span> Sync unavailable</p>
                     <p class="work-status">Selected work loads from the published app list and needs JavaScript.</p>
                 </noscript>
             </div>

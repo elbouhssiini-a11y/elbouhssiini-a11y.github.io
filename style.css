@@ -1267,6 +1267,38 @@ html[data-theme="dark"] .theme-select {
   padding-top: 40px;
 }
 
+.sync-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45em;
+  max-width: 36rem;
+  margin-top: 22px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.011em;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.sync-status[hidden] {
+  display: none;
+}
+
+.sync-status-dot {
+  font-size: 8px;
+  line-height: 1;
+}
+
+.sync-status.is-live .sync-status-dot {
+  color: #34c759;
+}
+
+.sync-status.is-unavailable .sync-status-dot {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
 .work-status {
   margin: 0;
   font-size: 16px;
