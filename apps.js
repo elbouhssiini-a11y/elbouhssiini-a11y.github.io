@@ -4,53 +4,8 @@
   var featuredRoot = document.getElementById("work-featured");
   var caseRoot = document.getElementById("work-cases");
   var status = document.getElementById("work-status");
-  var syncStatus = document.getElementById("sync-status");
-  var syncToggle = document.getElementById("sync-status-toggle");
-  var syncPanel = document.getElementById("sync-status-panel");
-  var syncLabel = document.getElementById("sync-status-label");
-  var syncDetail = document.getElementById("sync-status-detail");
-  var syncedAt = "";
 
   if (!featuredRoot || !caseRoot || !status) return;
-
-  function relativeSyncTime(iso) {
-    if (typeof iso !== "string" || !iso.trim()) return "";
-    var then = Date.parse(iso);
-    if (Number.isNaN(then)) return "";
-    var elapsed = Date.now() - then;
-    if (elapsed < 0) elapsed = 0;
-    var minutes = Math.floor(elapsed / 60000);
-    if (minutes < 1) return "just now";
-    if (minutes < 60) return minutes + " min ago";
-    var hours = Math.floor(minutes / 60);
-    if (hours < 24) return hours === 1 ? "1 hour ago" : hours + " hours ago";
-    var days = Math.floor(hours / 24);
-    return days === 1 ? "1 day ago" : days + " days ago";
-  }
-
-  function setSyncOpen(open) {
-    if (!syncStatus || !syncToggle || !syncPanel) return;
-    if (!syncStatus.classList.contains("is-live")) open = false;
-    syncStatus.classList.toggle("is-open", open);
-    syncToggle.setAttribute("aria-expanded", open ? "true" : "false");
-    syncPanel.hidden = !open;
-  }
-
-  function renderSync(iso) {
-    if (!syncStatus || !syncLabel) return;
-    var when = relativeSyncTime(iso);
-    var live = Boolean(when);
-    var detail = live ? "Updated " + when : "Sync unavailable";
-    syncStatus.classList.toggle("is-live", live);
-    syncStatus.classList.toggle("is-unavailable", !live);
-    syncStatus.hidden = false;
-    syncLabel.textContent = live ? "Live" : "Unavailable";
-    if (syncToggle) {
-      syncToggle.setAttribute("aria-label", live ? "Live. " + detail : detail);
-    }
-    if (syncDetail) syncDetail.textContent = detail;
-    if (!live) setSyncOpen(false);
-  }
 
   function setStatus(message) {
     status.hidden = false;
@@ -88,16 +43,30 @@
     return typeof value === "string" ? value.replace(/\s+/g, " ").trim() : "";
   }
 
-  function makeIcon(src, name, size) {
+  function makeIcon(src, size) {
     var img = document.createElement("img");
     img.className = size === "featured" ? "featured-app-icon" : "case-icon";
     img.src = src;
     img.width = size === "featured" ? 220 : 72;
     img.height = size === "featured" ? 220 : 72;
-    img.alt = name + " app icon";
+    img.alt = "";
     img.decoding = "async";
     if (size !== "featured") img.loading = "lazy";
     return img;
+  }
+
+  function makeIconLink(app, size) {
+    var link = document.createElement("a");
+    link.className = "app-icon-link";
+    link.href = app.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.appendChild(makeIcon(app.icon, size));
+    var hidden = document.createElement("span");
+    hidden.className = "visually-hidden";
+    hidden.textContent = "View " + app.name + " on the App Store (opens in a new tab)";
+    link.appendChild(hidden);
+    return link;
   }
 
   function makeStoreLink(url, label) {
@@ -212,7 +181,7 @@
 
     var visual = document.createElement("div");
     visual.className = "featured-visual";
-    if (app.icon) visual.appendChild(makeIcon(app.icon, app.name, "featured"));
+    if (app.icon) visual.appendChild(makeIconLink(app, "featured"));
 
     article.appendChild(content);
     article.appendChild(visual);
@@ -247,7 +216,7 @@
     body.appendChild(copy);
     appendStudy(body, app);
 
-    if (app.icon) article.appendChild(makeIcon(app.icon, app.name, "case"));
+    if (app.icon) article.appendChild(makeIconLink(app, "case"));
     else {
       var spacer = document.createElement("span");
       spacer.className = "case-icon";
@@ -319,33 +288,9 @@
       return response.json();
     })
     .then(function (data) {
-      syncedAt = data && typeof data.generatedAt === "string" ? data.generatedAt : "";
-      renderSync(syncedAt);
       render(Array.isArray(data && data.apps) ? data.apps : []);
     })
     .catch(function () {
-      syncedAt = "";
-      renderSync("");
       setStatus("Selected work is unavailable right now.");
     });
-
-  window.setInterval(function () {
-    if (syncedAt) renderSync(syncedAt);
-  }, 60000);
-
-  if (syncToggle) {
-    syncToggle.addEventListener("click", function () {
-      if (!syncStatus.classList.contains("is-live")) return;
-      setSyncOpen(syncToggle.getAttribute("aria-expanded") !== "true");
-    });
-  }
-
-  document.addEventListener("click", function (event) {
-    if (!syncStatus || syncStatus.contains(event.target)) return;
-    setSyncOpen(false);
-  });
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") setSyncOpen(false);
-  });
 })();
