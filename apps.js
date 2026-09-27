@@ -40,7 +40,7 @@
     if (!syncStatus || !syncLabel) return;
     var when = relativeSyncTime(iso);
     var live = Boolean(when);
-    var detail = live ? "App Store Connect · Synced " + when : "Sync unavailable";
+    var detail = live ? "Updated " + when : "Sync unavailable";
     syncStatus.classList.toggle("is-live", live);
     syncStatus.classList.toggle("is-unavailable", !live);
     syncStatus.hidden = false;
