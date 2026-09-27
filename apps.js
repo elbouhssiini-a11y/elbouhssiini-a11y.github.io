@@ -5,10 +5,11 @@
   var caseRoot = document.getElementById("work-cases");
   var status = document.getElementById("work-status");
   var syncStatus = document.getElementById("sync-status");
+  var syncToggle = document.getElementById("sync-status-toggle");
+  var syncPanel = document.getElementById("sync-status-panel");
   var syncLabel = document.getElementById("sync-status-label");
-  var syncFull = document.getElementById("sync-status-full");
+  var syncDetail = document.getElementById("sync-status-detail");
   var syncedAt = "";
-  var compactSync = window.matchMedia("(max-width: 760px)");
 
   if (!featuredRoot || !caseRoot || !status) return;
 
@@ -27,18 +28,28 @@
     return days === 1 ? "1 day ago" : days + " days ago";
   }
 
+  function setSyncOpen(open) {
+    if (!syncStatus || !syncToggle || !syncPanel) return;
+    if (!syncStatus.classList.contains("is-live")) open = false;
+    syncStatus.classList.toggle("is-open", open);
+    syncToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    syncPanel.hidden = !open;
+  }
+
   function renderSync(iso) {
     if (!syncStatus || !syncLabel) return;
     var when = relativeSyncTime(iso);
     var live = Boolean(when);
-    var full = live
-      ? "Live · App Store Connect · Synced " + when
-      : "Sync unavailable";
+    var detail = live ? "App Store Connect · Synced " + when : "Sync unavailable";
     syncStatus.classList.toggle("is-live", live);
     syncStatus.classList.toggle("is-unavailable", !live);
     syncStatus.hidden = false;
-    if (syncFull) syncFull.textContent = full;
-    syncLabel.textContent = live && compactSync.matches ? "Synced " + when : full;
+    syncLabel.textContent = live ? "Live" : "Unavailable";
+    if (syncToggle) {
+      syncToggle.setAttribute("aria-label", live ? "Live. " + detail : detail);
+    }
+    if (syncDetail) syncDetail.textContent = detail;
+    if (!live) setSyncOpen(false);
   }
 
   function setStatus(message) {
@@ -265,9 +276,19 @@
     if (syncedAt) renderSync(syncedAt);
   }, 60000);
 
-  if (compactSync.addEventListener) {
-    compactSync.addEventListener("change", function () {
-      renderSync(syncedAt);
+  if (syncToggle) {
+    syncToggle.addEventListener("click", function () {
+      if (!syncStatus.classList.contains("is-live")) return;
+      setSyncOpen(syncToggle.getAttribute("aria-expanded") !== "true");
     });
   }
+
+  document.addEventListener("click", function (event) {
+    if (!syncStatus || syncStatus.contains(event.target)) return;
+    setSyncOpen(false);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") setSyncOpen(false);
+  });
 })();

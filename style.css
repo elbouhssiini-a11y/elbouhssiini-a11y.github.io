@@ -1268,20 +1268,64 @@ html[data-theme="dark"] .theme-select {
 }
 
 .sync-status {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.4em;
   margin: 0 4px 0 2px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: -0.011em;
-  line-height: 1;
-  color: var(--text-secondary);
-  white-space: nowrap;
 }
 
-.sync-status[hidden] {
+.sync-status[hidden],
+.sync-status-panel[hidden] {
   display: none;
+}
+
+.sync-status-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 6px 28px 6px 12px;
+  border-radius: 980px;
+  border: 1px solid var(--border);
+  background-color: var(--theme-select-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236e6e73' d='M3 4.5L6 7.5L9 4.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--theme-duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    color var(--duration) var(--ease);
+}
+
+html[data-theme="dark"] .sync-status-toggle {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a1a1a6' d='M3 4.5L6 7.5L9 4.5'/%3E%3C/svg%3E");
+}
+
+.sync-status-toggle:hover,
+.sync-status.is-open .sync-status-toggle {
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.sync-status-toggle:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.sync-status.is-unavailable .sync-status-toggle {
+  padding-right: 12px;
+  background-image: none;
+  cursor: default;
 }
 
 .sync-status-dot {
@@ -1296,6 +1340,37 @@ html[data-theme="dark"] .theme-select {
 .sync-status.is-unavailable .sync-status-dot {
   color: var(--text-secondary);
   opacity: 0.7;
+}
+
+.sync-status-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 2;
+  min-width: 15rem;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.011em;
+  line-height: 1.45;
+  white-space: nowrap;
+}
+
+noscript .sync-status {
+  gap: 6px;
+  min-height: 34px;
+  padding: 6px 12px;
+  border-radius: 980px;
+  border: 1px solid var(--border);
+  background: var(--theme-select-bg);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
 }
 
 .work-status {

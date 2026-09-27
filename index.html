@@ -67,11 +67,15 @@
                     <li><a href="#stack">Stack</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <p class="sync-status" id="sync-status" role="status" hidden>
-                    <span class="visually-hidden" id="sync-status-full"></span>
-                    <span class="sync-status-dot" aria-hidden="true">●</span>
-                    <span id="sync-status-label" aria-hidden="true"></span>
-                </p>
+                <div class="sync-status" id="sync-status" hidden>
+                    <button type="button" class="sync-status-toggle" id="sync-status-toggle" aria-expanded="false" aria-controls="sync-status-panel">
+                        <span class="sync-status-dot" aria-hidden="true">●</span>
+                        <span id="sync-status-label">Live</span>
+                    </button>
+                    <div class="sync-status-panel" id="sync-status-panel" role="status" hidden>
+                        <p id="sync-status-detail"></p>
+                    </div>
+                </div>
                 <noscript>
                     <p class="sync-status is-unavailable"><span aria-hidden="true">●</span> Sync unavailable</p>
                 </noscript>
