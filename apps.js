@@ -6,7 +6,9 @@
   var status = document.getElementById("work-status");
   var syncStatus = document.getElementById("sync-status");
   var syncLabel = document.getElementById("sync-status-label");
+  var syncFull = document.getElementById("sync-status-full");
   var syncedAt = "";
+  var compactSync = window.matchMedia("(max-width: 760px)");
 
   if (!featuredRoot || !caseRoot || !status) return;
 
@@ -29,12 +31,14 @@
     if (!syncStatus || !syncLabel) return;
     var when = relativeSyncTime(iso);
     var live = Boolean(when);
+    var full = live
+      ? "Live · App Store Connect · Synced " + when
+      : "Sync unavailable";
     syncStatus.classList.toggle("is-live", live);
     syncStatus.classList.toggle("is-unavailable", !live);
     syncStatus.hidden = false;
-    syncLabel.textContent = live
-      ? "Live · App Store Connect · Synced " + when
-      : "Sync unavailable";
+    if (syncFull) syncFull.textContent = full;
+    syncLabel.textContent = live && compactSync.matches ? "Synced " + when : full;
   }
 
   function setStatus(message) {
@@ -260,4 +264,10 @@
   window.setInterval(function () {
     if (syncedAt) renderSync(syncedAt);
   }, 60000);
+
+  if (compactSync.addEventListener) {
+    compactSync.addEventListener("change", function () {
+      renderSync(syncedAt);
+    });
+  }
 })();
