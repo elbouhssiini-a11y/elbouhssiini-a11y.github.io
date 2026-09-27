@@ -349,9 +349,10 @@ a:hover {
 }
 
 .logo {
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -0.022em;
+  line-height: 1;
   color: var(--text);
   text-decoration: none;
   white-space: nowrap;
