@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Elbouhssini | Independent iOS Developer</title>
+    <title>Ahmed Elbouhssini — Independent iOS Developer</title>
     <meta name="description"
-        content="Official website of Ahmed Elbouhssini, independent iOS developer. Explore apps for iPhone and iPad, and get support.">
+        content="Independent iOS developer building polished experiences for iPhone and iPad.">
     <meta name="author" content="Ahmed Elbouhssini">
     <meta name="theme-color" content="#f5f5f7">
     <meta name="robots" content="index, follow">
@@ -14,16 +14,16 @@
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://elbouhssiini-a11y.github.io/">
-    <meta property="og:title" content="Ahmed Elbouhssini | Independent iOS Developer">
+    <meta property="og:title" content="Ahmed Elbouhssini — Independent iOS Developer">
     <meta property="og:description"
-        content="Building beautiful experiences for iPhone and iPad. Discover apps and support.">
+        content="Independent iOS developer building polished experiences for iPhone and iPad.">
     <meta property="og:site_name" content="Ahmed Elbouhssini">
     <meta property="og:locale" content="en_US">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Ahmed Elbouhssini | Independent iOS Developer">
+    <meta name="twitter:title" content="Ahmed Elbouhssini — Independent iOS Developer">
     <meta name="twitter:description"
-        content="Building beautiful experiences for iPhone and iPad. Discover apps and support.">
+        content="Independent iOS developer building polished experiences for iPhone and iPad.">
 
     <script>
         (function () {
@@ -48,12 +48,13 @@
 
     <header class="site-header">
         <nav class="nav" aria-label="Primary">
-            <a class="logo" href="index.html">Developer Portfolio</a>
+            <a class="logo" href="index.html">Ahmed.</a>
             <div class="nav-right">
                 <ul class="nav-links" id="primary-nav">
-                    <li><a href="index.html" aria-current="page">Home</a></li>
-                    <li><a href="apps.html">Apps</a></li>
-                    <li><a href="https://sites.google.com/view/elbouhssini-apps-hub/home" target="_blank" rel="noopener noreferrer">Support</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#stack">Stack</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="theme-switch">
                     <label class="visually-hidden" for="theme-select">Appearance</label>
@@ -72,124 +73,199 @@
     </header>
 
     <main id="main">
-        <section class="hero">
+        <section class="hero" aria-labelledby="hero-heading">
             <div class="hero-inner reveal">
-                <span class="hero-badge">Independent iOS Developer</span>
-                <h1>
-                    Building beautiful experiences<br>
-                    for <span class="accent">iPhone &amp; iPad</span>.
-                </h1>
+                <p class="hero-eyebrow">Independent iOS Developer</p>
+                <h1 id="hero-heading">I build polished iOS experiences.</h1>
                 <p class="hero-copy">
-                    Welcome to my official developer website.
-                    Explore my apps for iPhone and iPad, and get support when you need it.
+                    I design and develop production-ready iPhone and iPad applications with modern Apple technologies, including Swift, SwiftUI, ARKit, StoreKit and Firebase.
                 </p>
                 <div class="hero-actions">
-                    <a href="apps.html" class="btn btn-primary">View My Apps</a>
-                    <a href="https://sites.google.com/view/elbouhssini-apps-hub/home" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Contact Support</a>
+                    <a href="#work" class="btn btn-primary">View Selected Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
                 </div>
             </div>
         </section>
 
-        <!-- Featured App: swap icon, title, description, chips, and App Store link -->
-        <section class="featured" aria-labelledby="featured-heading">
-            <article class="featured-card reveal">
-                <div class="featured-content">
-                    <p class="featured-kicker">Featured App</p>
-                    <h2 id="featured-heading">SillySmile Live 4K Walls</h2>
-                    <p>
-                        Beautiful 4K, HD and Live Wallpapers for iPhone —
-                        crafted for a premium browsing experience.
-                    </p>
-                    <div class="featured-meta">
-                        <span class="chip">iOS</span>
-                        <span class="chip chip-muted">Available Now</span>
+        <section class="tech-band" aria-labelledby="tech-heading">
+            <div class="container">
+                <h2 class="tech-statement reveal" id="tech-heading">Built with modern Apple technologies.</h2>
+                <ol class="tech-index reveal">
+                    <li>Swift</li>
+                    <li>SwiftUI</li>
+                    <li>iOS</li>
+                    <li>iPadOS</li>
+                    <li>ARKit</li>
+                    <li>RealityKit</li>
+                    <li>StoreKit</li>
+                    <li>Firebase</li>
+                    <li>Cloud Firestore</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section" id="stack" aria-labelledby="stack-heading">
+            <div class="container">
+                <header class="section-intro reveal">
+                    <p class="section-kicker">Stack</p>
+                    <h2 class="section-title" id="stack-heading">Engineering, kept specific.</h2>
+                    <p class="section-lead">The interface layer, the platforms, and the systems behind apps that ship.</p>
+                </header>
+                <div class="stack-grid reveal">
+                    <article class="stack-group">
+                        <h3>UI &amp; Architecture</h3>
+                        <ul>
+                            <li>SwiftUI</li>
+                            <li>MVVM</li>
+                            <li>SwiftData</li>
+                        </ul>
+                    </article>
+                    <article class="stack-group">
+                        <h3>Apple Platforms</h3>
+                        <ul>
+                            <li>iOS</li>
+                            <li>iPadOS</li>
+                            <li>ARKit</li>
+                            <li>RealityKit</li>
+                        </ul>
+                    </article>
+                    <article class="stack-group">
+                        <h3>Monetization</h3>
+                        <ul>
+                            <li>StoreKit</li>
+                            <li>In-App Purchases</li>
+                            <li>AdMob</li>
+                        </ul>
+                    </article>
+                    <article class="stack-group">
+                        <h3>Backend</h3>
+                        <ul>
+                            <li>Firebase</li>
+                            <li>Cloud Firestore</li>
+                            <li>Remote configuration</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-work" id="work" aria-labelledby="work-heading">
+            <div class="container">
+                <header class="section-intro reveal">
+                    <p class="section-kicker">Selected work</p>
+                    <h2 class="section-title" id="work-heading">Products designed and shipped.</h2>
+                    <p class="section-lead">Production apps for iPhone, from the interface through to the App Store.</p>
+                </header>
+
+                <article class="featured-card reveal">
+                    <div class="featured-content">
+                        <p class="project-kicker">01 — Featured</p>
+                        <h3 id="featured-heading">SillySmile Live 4K Walls</h3>
+                        <p class="project-copy">
+                            A production wallpaper app for iPhone. It is built around 4K, HD and Live wallpapers, with a focused browsing experience that stays native and deliberate.
+                        </p>
+                        <dl class="case-meta">
+                            <div>
+                                <dt>Platform</dt>
+                                <dd>iPhone</dd>
+                            </div>
+                            <div>
+                                <dt>Focus</dt>
+                                <dd>4K, HD and Live wallpapers</dd>
+                            </div>
+                            <div>
+                                <dt>Distribution</dt>
+                                <dd>App Store</dd>
+                            </div>
+                        </dl>
+                        <a class="arrow-link" href="https://apps.apple.com/ma/app/sillysmile-live-4k-walls/id6783467232" target="_blank" rel="noopener noreferrer">
+                            View on the App Store
+                            <span class="visually-hidden">(opens in a new tab)</span>
+                        </a>
                     </div>
+                    <div class="featured-visual">
+                        <img class="featured-app-icon" src="assets/icons/sillysmile.png" width="220" height="220" alt="SillySmile Live 4K Walls app icon">
+                    </div>
+                </article>
+
+                <div class="case-list">
+                    <article class="case-row reveal">
+                        <p class="case-index">02</p>
+                        <img class="case-icon" src="assets/icons/novawalls.png" width="72" height="72" alt="NovaWalls app icon" loading="lazy" decoding="async">
+                        <div class="case-body">
+                            <h3>NovaWalls</h3>
+                            <p class="case-type">Wallpapers for iPhone</p>
+                            <p>High-quality wallpapers organized around a clean browsing experience, with a direct path from discovery to the image.</p>
+                        </div>
+                        <a class="arrow-link" href="https://apps.apple.com/ma/app/novawalls/id6768069268" target="_blank" rel="noopener noreferrer">
+                            App Store
+                            <span class="visually-hidden">(opens in a new tab)</span>
+                        </a>
+                    </article>
+                    <article class="case-row reveal">
+                        <p class="case-index">03</p>
+                        <img class="case-icon" src="assets/icons/ultrawalls.png" width="72" height="72" alt="UltraWalls app icon" loading="lazy" decoding="async">
+                        <div class="case-body">
+                            <h3>UltraWalls</h3>
+                            <p class="case-type">Wallpapers for iPhone</p>
+                            <p>Premium wallpapers presented through a simple, product-first interface built for iPhone.</p>
+                        </div>
+                        <a class="arrow-link" href="https://apps.apple.com/ma/app/ultrawalls/id6771954694" target="_blank" rel="noopener noreferrer">
+                            App Store
+                            <span class="visually-hidden">(opens in a new tab)</span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="about-split reveal">
                     <div>
-                        <a href="https://apps.apple.com/ma/app/sillysmile-live-4k-walls/id6783467232" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
+                        <p class="section-kicker">About</p>
+                        <h2 class="section-title" id="about-heading">Native work, ready to ship.</h2>
                     </div>
-                </div>
-                <div class="featured-visual" aria-hidden="true">
-                    <img class="featured-app-icon" src="assets/icons/sillysmile.png" width="140" height="140" alt="">
-                </div>
-            </article>
-        </section>
-
-        <!-- Apps grid: duplicate an app-card and update icon, title, description, status, and link -->
-        <section class="section section-tight" id="apps" aria-labelledby="apps-heading">
-            <div class="container">
-                <div class="section-head reveal">
-                    <p class="section-label">Apps</p>
-                    <h2 class="section-title" id="apps-heading">Apps for iPhone &amp; iPad</h2>
-                    <p class="section-lead">A growing collection of carefully crafted applications.</p>
-                </div>
-                <div class="apps-grid">
-                    <article class="app-card reveal reveal-delay-1">
-                        <img class="app-icon" src="assets/icons/sillysmile.png" width="104" height="104" alt="SillySmile Live 4K Walls app icon" loading="lazy" decoding="async">
-                        <h3>SillySmile Live 4K Walls</h3>
-                        <p>Beautiful 4K, HD and Live Wallpapers for iPhone.</p>
-                        <div class="app-card-footer">
-                            <span class="status">Available Now</span>
-                            <a class="btn btn-primary" href="https://apps.apple.com/ma/app/sillysmile-live-4k-walls/id6783467232" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
-                        </div>
-                    </article>
-                    <article class="app-card reveal reveal-delay-2">
-                        <img class="app-icon" src="assets/icons/novawalls.png" width="104" height="104" alt="NovaWalls app icon" loading="lazy" decoding="async">
-                        <h3>NovaWalls</h3>
-                        <p>Modern high-quality wallpapers for iPhone.</p>
-                        <div class="app-card-footer">
-                            <span class="status">Available Now</span>
-                            <a class="btn btn-primary" href="https://apps.apple.com/ma/app/novawalls/id6768069268" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
-                        </div>
-                    </article>
-                    <article class="app-card reveal reveal-delay-3">
-                        <img class="app-icon" src="assets/icons/ultrawalls.png" width="104" height="104" alt="UltraWalls app icon" loading="lazy" decoding="async">
-                        <h3>UltraWalls</h3>
-                        <p>Premium wallpapers designed for iPhone.</p>
-                        <div class="app-card-footer">
-                            <span class="status">Available Now</span>
-                            <a class="btn btn-primary" href="https://apps.apple.com/ma/app/ultrawalls/id6771954694" target="_blank" rel="noopener noreferrer">Download on the App Store</a>
-                        </div>
-                    </article>
+                    <div class="about-copy">
+                        <p>I design and build native applications for iPhone and iPad. SwiftUI is the primary interface layer, paired with a modern architecture that stays clear as a product grows.</p>
+                        <p>The work is about polished UI, performance, and Apple technologies used with intent. What leaves the desk is production-ready software, delivered on the App Store.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section" aria-labelledby="resources-heading">
+        <section class="section section-contact" id="contact" aria-labelledby="contact-heading">
             <div class="container">
-                <div class="section-head reveal">
-                    <p class="section-label">Support</p>
-                    <h2 class="section-title" id="resources-heading">Need help?</h2>
-                    <p class="section-lead">Questions about an app? Reach out anytime.</p>
-                </div>
-                <div class="resources-grid">
-                    <a class="resource-card reveal" href="https://sites.google.com/view/elbouhssini-apps-hub/home" target="_blank" rel="noopener noreferrer">
-                        <h3>Support</h3>
-                        <p>Need help with one of my apps? Reach out anytime.</p>
-                        <span class="more">Contact</span>
-                    </a>
+                <div class="contact-block reveal">
+                    <p class="section-kicker">Contact</p>
+                    <h2 class="section-title" id="contact-heading">Have a product in mind?</h2>
+                    <p class="section-lead">Let's build something thoughtful for Apple's platforms.</p>
+                    <div class="contact-links">
+                        <a class="contact-email" href="mailto:elbouhssiini@gmail.com">elbouhssiini@gmail.com</a>
+                        <a class="arrow-link" href="https://sites.google.com/view/elbouhssini-apps-hub/home" target="_blank" rel="noopener noreferrer">
+                            App support
+                            <span class="visually-hidden">(opens in a new tab)</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="site-footer reveal">
+    <footer class="site-footer">
         <div class="footer-inner">
             <div>
-                <p class="footer-brand">Ahmed Elbouhssini</p>
+                <p class="footer-brand">Ahmed.</p>
                 <p class="footer-tag">Independent iOS Developer</p>
             </div>
             <ul class="footer-nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="apps.html">Apps</a></li>
-                <li><a href="https://sites.google.com/view/elbouhssini-apps-hub/home" target="_blank" rel="noopener noreferrer">Support</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#stack">Stack</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="footer-bottom">
-                <p>&copy; 2026 Ahmed Elbouhssini. All rights reserved.</p>
-                <div class="footer-meta">
-                    <a href="mailto:elbouhssiini@gmail.com">elbouhssiini@gmail.com</a>
-                    <a href="https://elbouhssiini-a11y.github.io" target="_blank" rel="noopener noreferrer">Developer Portfolio</a>
-                    <span>Built for GitHub Pages</span>
-                </div>
+                <p>&copy; 2026 Ahmed Elbouhssini</p>
             </div>
         </div>
     </footer>
