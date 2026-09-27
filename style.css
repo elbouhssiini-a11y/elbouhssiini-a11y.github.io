@@ -41,6 +41,11 @@ html[data-theme="light"] {
   --app-icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 10px 24px rgba(0, 0, 0, 0.08);
   --chip-text: #0071e3;
   --stage: #0b0b0c;
+  --ambient-a: rgba(0, 113, 227, 0.55);
+  --ambient-b: rgba(120, 190, 255, 0.42);
+  --ambient-c: rgba(0, 113, 227, 0.28);
+  --dot: rgba(0, 113, 227, 0.72);
+  --dot-ring: rgba(0, 113, 227, 0.28);
   --radius: 24px;
   --radius-sm: 14px;
   --radius-icon: 22%;
@@ -95,6 +100,11 @@ html[data-theme="dark"] {
   --app-icon-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 12px 28px rgba(0, 0, 0, 0.4);
   --chip-text: #64b4ff;
   --stage: #070708;
+  --ambient-a: rgba(10, 132, 255, 0.5);
+  --ambient-b: rgba(90, 170, 255, 0.32);
+  --ambient-c: rgba(10, 132, 255, 0.2);
+  --dot: rgba(140, 196, 255, 0.85);
+  --dot-ring: rgba(10, 132, 255, 0.45);
 }
 
 *,
@@ -111,6 +121,11 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+html:has(.ambient) {
+  background-color: var(--bg);
+  transition: background-color var(--theme-duration) var(--ease);
+}
+
 body {
   font-family: var(--font);
   background: var(--bg);
@@ -125,6 +140,119 @@ body {
     background-color var(--theme-duration) var(--ease),
     color var(--theme-duration) var(--ease);
 }
+
+body:has(.ambient) {
+  background-color: transparent;
+  position: relative;
+  z-index: 0;
+}
+
+body:has(.ambient) > main,
+body:has(.ambient) > .site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 8% -8%, var(--ambient-a), transparent 58%),
+    radial-gradient(ellipse 60% 45% at 100% 8%, var(--ambient-b), transparent 52%);
+}
+
+.ambient-orb {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  filter: blur(48px);
+}
+
+.ambient-orb-a {
+  width: min(62vw, 760px);
+  height: min(62vw, 760px);
+  top: -18vh;
+  left: -12vw;
+  background: radial-gradient(circle, var(--ambient-a) 0%, transparent 68%);
+  animation: ambient-drift-a 22s ease-in-out infinite;
+}
+
+.ambient-orb-b {
+  width: min(52vw, 640px);
+  height: min(52vw, 640px);
+  top: 18vh;
+  right: -14vw;
+  background: radial-gradient(circle, var(--ambient-b) 0%, transparent 68%);
+  animation: ambient-drift-b 28s ease-in-out infinite;
+}
+
+.ambient-orb-c {
+  width: min(46vw, 560px);
+  height: min(46vw, 560px);
+  bottom: 8vh;
+  left: 18vw;
+  background: radial-gradient(circle, var(--ambient-c) 0%, transparent 70%);
+  animation: ambient-drift-c 34s ease-in-out infinite;
+}
+
+@keyframes ambient-drift-a {
+  0%,
+  100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(64px, 48px, 0); }
+}
+
+@keyframes ambient-drift-b {
+  0%,
+  100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-72px, 36px, 0); }
+}
+
+@keyframes ambient-drift-c {
+  0%,
+  100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(40px, -56px, 0); }
+}
+
+.ambient-dots {
+  position: absolute;
+  inset: 0;
+}
+
+.ambient-dots span {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: var(--dot);
+  box-shadow: 0 0 0 1px var(--dot-ring);
+  animation: dot-drift var(--dur, 16s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes dot-drift {
+  0%,
+  100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(var(--dx), var(--dy), 0); }
+}
+
+.ambient-dots span:nth-child(1)  { width: 7px;  height: 7px;  top: 18%; left: 8%;  --dx: 36px;  --dy: -90px; --dur: 14s; --delay: -2s; }
+.ambient-dots span:nth-child(2)  { width: 5px;  height: 5px;  top: 28%; left: 22%; --dx: -28px; --dy: -70px; --dur: 18s; --delay: -6s; }
+.ambient-dots span:nth-child(3)  { width: 9px;  height: 9px;  top: 14%; left: 46%; --dx: 48px;  --dy: 80px;  --dur: 16s; --delay: -1s; }
+.ambient-dots span:nth-child(4)  { width: 6px;  height: 6px;  top: 22%; left: 68%; --dx: -40px; --dy: -60px; --dur: 20s; --delay: -8s; }
+.ambient-dots span:nth-child(5)  { width: 8px;  height: 8px;  top: 36%; left: 84%; --dx: -56px; --dy: 74px;  --dur: 15s; --delay: -4s; }
+.ambient-dots span:nth-child(6)  { width: 4px;  height: 4px;  top: 48%; left: 14%; --dx: 30px;  --dy: -84px; --dur: 17s; --delay: -9s; }
+.ambient-dots span:nth-child(7)  { width: 10px; height: 10px; top: 58%; left: 32%; --dx: 44px;  --dy: -66px; --dur: 19s; --delay: -3s; }
+.ambient-dots span:nth-child(8)  { width: 5px;  height: 5px;  top: 64%; left: 54%; --dx: -24px; --dy: 90px;  --dur: 13s; --delay: -7s; }
+.ambient-dots span:nth-child(9)  { width: 7px;  height: 7px;  top: 72%; left: 76%; --dx: -46px; --dy: -72px; --dur: 21s; --delay: -5s; }
+.ambient-dots span:nth-child(10) { width: 6px;  height: 6px;  top: 82%; left: 12%; --dx: 52px;  --dy: -48px; --dur: 16s; --delay: -11s; }
+.ambient-dots span:nth-child(11) { width: 8px;  height: 8px;  top: 88%; left: 42%; --dx: -34px; --dy: -88px; --dur: 18s; --delay: -2s; }
+.ambient-dots span:nth-child(12) { width: 4px;  height: 4px;  top: 44%; left: 90%; --dx: -60px; --dy: -40px; --dur: 15s; --delay: -10s; }
+.ambient-dots span:nth-child(13) { width: 9px;  height: 9px;  top: 8%;  left: 78%; --dx: 24px;  --dy: 96px;  --dur: 22s; --delay: -6s; }
+.ambient-dots span:nth-child(14) { width: 5px;  height: 5px;  top: 52%; left: 62%; --dx: 38px;  --dy: -54px; --dur: 14s; --delay: -8s; }
+.ambient-dots span:nth-child(15) { width: 7px;  height: 7px;  top: 76%; left: 92%; --dx: -42px; --dy: -78px; --dur: 19s; --delay: -1s; }
+.ambient-dots span:nth-child(16) { width: 6px;  height: 6px;  top: 32%; left: 38%; --dx: 20px;  --dy: 70px;  --dur: 17s; --delay: -12s; }
 
 ::selection {
   background: var(--blue-soft);
@@ -1430,6 +1558,10 @@ html.js .reveal-delay-3.is-visible {
     scroll-behavior: auto;
   }
 
+  html:has(.ambient) {
+    transition: none;
+  }
+
   body,
   .app-card,
   .resource-card,
@@ -1446,8 +1578,14 @@ html.js .reveal-delay-3.is-visible {
   .project-icon,
   .app-icon,
   .nav-links,
-  .nav-toggle span {
+  .nav-toggle span,
+  .ambient-orb {
     transition: none;
+  }
+
+  .ambient-orb,
+  .ambient-dots span {
+    animation: none;
   }
 
   html.js .reveal.is-visible {
