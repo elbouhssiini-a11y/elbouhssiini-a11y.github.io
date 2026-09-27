@@ -2,6 +2,8 @@
   "6783467232": {
     "name": "SillySmile Live 4K Walls",
     "description": "An iOS wallpaper experience built for discovering and enjoying high-quality 4K and live wallpapers, with a polished native experience.",
+    "role": "Independent Developer",
+    "focus": "Native iOS work for discovering and browsing 4K and live wallpapers.",
     "icon": "assets/icons/sillysmile.png",
     "url": "https://apps.apple.com/ma/app/sillysmile-live-4k-walls/id6783467232",
     "featured": true
@@ -9,6 +11,8 @@
   "6768069268": {
     "name": "NovaWalls",
     "description": "A modern iOS wallpaper app focused on curated visuals, smooth browsing, and a clean native experience.",
+    "role": "Independent Developer",
+    "focus": "Native browsing work focused on curated wallpaper visuals.",
     "icon": "assets/icons/novawalls.png",
     "url": "https://apps.apple.com/ma/app/novawalls/id6768069268",
     "featured": false
@@ -16,6 +20,8 @@
   "6771954694": {
     "name": "UltraWalls",
     "description": "A premium wallpaper experience for iPhone, designed around high-quality visuals and a simple, immersive browsing experience.",
+    "role": "Independent Developer",
+    "focus": "A premium browsing experience built around high-quality wallpaper visuals.",
     "icon": "assets/icons/ultrawalls.png",
     "url": "https://apps.apple.com/ma/app/ultrawalls/id6771954694",
     "featured": false

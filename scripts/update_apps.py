@@ -290,6 +290,30 @@ def public_record(app_id, name, url, icon, description, category, platform):
     return record
 
 
+def attach_editorial(record, copy):
+    if not record:
+        return None
+    entry = copy or {}
+    role = re.sub(r"\s+", " ", str(entry.get("role") or "")).strip()
+    focus = re.sub(r"\s+", " ", str(entry.get("focus") or "")).strip()
+    if role:
+        record["role"] = role[:80]
+    if focus:
+        record["focus"] = focus[:280]
+    technologies = []
+    raw = entry.get("technologies")
+    if isinstance(raw, list):
+        for item in raw:
+            text = re.sub(r"\s+", " ", str(item or "")).strip()
+            if text and text not in technologies:
+                technologies.append(text[:40])
+            if len(technologies) == 6:
+                break
+    if technologies:
+        record["technologies"] = technologies
+    return record
+
+
 def apply_featured(apps, copies):
     preferred = [
         app["id"]
@@ -318,7 +342,10 @@ def assert_public(document, secrets):
             "icon",
             "id",
             "name",
+            "focus",
             "platform",
+            "role",
+            "technologies",
             "url",
         }
         if extra:
@@ -450,7 +477,10 @@ def build_from_connect(asc, lookup, download, copies):
         category = (store.get("category") or "").strip() or human_category(meta["category_enum"])
         icon = choose_icon(app_id, copies, store.get("artwork") or "", download)
         url = (copy.get("url") or "").strip() or store.get("url") or ""
-        record = public_record(app_id, name, url, icon, description, category, "iOS")
+        record = attach_editorial(
+            public_record(app_id, name, url, icon, description, category, "iOS"),
+            copy,
+        )
         if record:
             apps.append(record)
     apply_featured(apps, copies)
@@ -473,14 +503,17 @@ def build_bootstrap(lookup, copies):
             name,
         )
         icon = safe_local_icon(copy.get("icon"))
-        record = public_record(
-            app_id,
-            name,
-            (copy.get("url") or store.get("url") or ""),
-            icon,
-            description,
-            store.get("category") or "",
-            "iOS",
+        record = attach_editorial(
+            public_record(
+                app_id,
+                name,
+                (copy.get("url") or store.get("url") or ""),
+                icon,
+                description,
+                store.get("category") or "",
+                "iOS",
+            ),
+            copy,
         )
         if record:
             apps.append(record)

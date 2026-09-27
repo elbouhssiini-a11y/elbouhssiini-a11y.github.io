@@ -114,6 +114,59 @@
     return link;
   }
 
+  function cleanList(value) {
+    if (!Array.isArray(value)) return [];
+    var seen = [];
+    value.forEach(function (item) {
+      var text = cleanText(item);
+      if (!text || text.length > 40 || seen.indexOf(text) !== -1) return;
+      seen.push(text);
+    });
+    return seen.slice(0, 6);
+  }
+
+  function appendStudy(parent, app) {
+    var facts = [];
+    if (app.platform) facts.push(["Platform", app.platform]);
+    if (app.role) facts.push(["Role", app.role]);
+    if (app.technologies.length) facts.push(["Technologies", app.technologies.join(" · ")]);
+    if (!facts.length && !app.focus) return;
+
+    var study = document.createElement("div");
+    study.className = "study";
+
+    if (facts.length) {
+      var row = document.createElement("p");
+      row.className = "study-facts";
+      facts.forEach(function (pair) {
+        var fact = document.createElement("span");
+        fact.className = "study-fact";
+        var label = document.createElement("span");
+        label.className = "study-kicker";
+        label.textContent = pair[0];
+        var value = document.createElement("span");
+        value.textContent = pair[1];
+        fact.appendChild(label);
+        fact.appendChild(value);
+        row.appendChild(fact);
+      });
+      study.appendChild(row);
+    }
+
+    if (app.focus) {
+      var focus = document.createElement("p");
+      focus.className = "study-focus";
+      var label = document.createElement("span");
+      label.className = "study-kicker";
+      label.textContent = "Engineering focus";
+      focus.appendChild(label);
+      focus.appendChild(document.createTextNode(app.focus));
+      study.appendChild(focus);
+    }
+
+    parent.appendChild(study);
+  }
+
   function addMeta(list, label, value) {
     if (!value) return;
     var item = document.createElement("div");
@@ -147,13 +200,13 @@
 
     var meta = document.createElement("dl");
     meta.className = "case-meta";
-    addMeta(meta, "Platform", app.platform);
     addMeta(meta, "Category", app.category);
     addMeta(meta, "Distribution", "App Store");
 
     content.appendChild(kicker);
     content.appendChild(title);
     content.appendChild(copy);
+    appendStudy(content, app);
     content.appendChild(meta);
     content.appendChild(makeStoreLink(app.url, "View on the App Store"));
 
@@ -192,6 +245,7 @@
     copy.className = "case-copy";
     copy.textContent = app.description;
     body.appendChild(copy);
+    appendStudy(body, app);
 
     if (app.icon) article.appendChild(makeIcon(app.icon, app.name, "case"));
     else {
@@ -223,6 +277,9 @@
       icon: iconUrl(entry.icon),
       category: cleanText(entry.category),
       platform: cleanText(entry.platform),
+      role: cleanText(entry.role),
+      focus: cleanText(entry.focus),
+      technologies: cleanList(entry.technologies),
       featured: entry.featured === true
     };
   }

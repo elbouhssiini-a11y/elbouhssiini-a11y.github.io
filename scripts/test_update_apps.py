@@ -153,6 +153,31 @@ class CatalogTests(unittest.TestCase):
         with self.assertRaises(update_apps.CatalogError):
             update_apps.asc_get(mock.Mock(), "https://itunes.apple.com/lookup", None)
 
+    def test_editorial_case_study_fields_stay_public(self):
+        record = update_apps.attach_editorial(
+            update_apps.public_record(
+                "6783467232",
+                "SillySmile Live 4K Walls",
+                "https://apps.apple.com/ma/app/sillysmile-live-4k-walls/id6783467232",
+                "assets/icons/sillysmile.png",
+                "An iOS wallpaper experience.",
+                "Graphics & Design",
+                "iOS",
+            ),
+            {
+                "role": "Independent Developer",
+                "focus": "Native iOS work for discovering and browsing 4K and live wallpapers.",
+                "technologies": ["Native iOS"],
+            },
+        )
+        self.assertEqual(record["role"], "Independent Developer")
+        self.assertIn("4K and live wallpapers", record["focus"])
+        self.assertEqual(record["technologies"], ["Native iOS"])
+        update_apps.assert_public({"apps": [record], "source": "app-store-connect"}, [])
+        record["bundleId"] = "com.example.app"
+        with self.assertRaises(update_apps.CatalogError):
+            update_apps.assert_public({"apps": [record]}, [])
+
     def test_write_skips_when_catalog_is_unchanged(self):
         document = {
             "apps": [
