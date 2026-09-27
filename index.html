@@ -168,65 +168,12 @@
                     <p class="section-lead">Production apps for iPhone, from the interface through to the App Store.</p>
                 </header>
 
-                <article class="featured-card reveal">
-                    <div class="featured-content">
-                        <p class="project-kicker">01 — Featured</p>
-                        <h3 id="featured-heading">SillySmile Live 4K Walls</h3>
-                        <p class="project-copy">
-                            A production wallpaper app for iPhone. It is built around 4K, HD and Live wallpapers, with a focused browsing experience that stays native and deliberate.
-                        </p>
-                        <dl class="case-meta">
-                            <div>
-                                <dt>Platform</dt>
-                                <dd>iPhone</dd>
-                            </div>
-                            <div>
-                                <dt>Focus</dt>
-                                <dd>4K, HD and Live wallpapers</dd>
-                            </div>
-                            <div>
-                                <dt>Distribution</dt>
-                                <dd>App Store</dd>
-                            </div>
-                        </dl>
-                        <a class="arrow-link" href="https://apps.apple.com/ma/app/sillysmile-live-4k-walls/id6783467232" target="_blank" rel="noopener noreferrer">
-                            View on the App Store
-                            <span class="visually-hidden">(opens in a new tab)</span>
-                        </a>
-                    </div>
-                    <div class="featured-visual">
-                        <img class="featured-app-icon" src="assets/icons/sillysmile.png" width="220" height="220" alt="SillySmile Live 4K Walls app icon">
-                    </div>
-                </article>
-
-                <div class="case-list">
-                    <article class="case-row reveal">
-                        <p class="case-index">02</p>
-                        <img class="case-icon" src="assets/icons/novawalls.png" width="72" height="72" alt="NovaWalls app icon" loading="lazy" decoding="async">
-                        <div class="case-body">
-                            <h3>NovaWalls</h3>
-                            <p class="case-type">Wallpapers for iPhone</p>
-                            <p>High-quality wallpapers organized around a clean browsing experience, with a direct path from discovery to the image.</p>
-                        </div>
-                        <a class="arrow-link" href="https://apps.apple.com/ma/app/novawalls/id6768069268" target="_blank" rel="noopener noreferrer">
-                            App Store
-                            <span class="visually-hidden">(opens in a new tab)</span>
-                        </a>
-                    </article>
-                    <article class="case-row reveal">
-                        <p class="case-index">03</p>
-                        <img class="case-icon" src="assets/icons/ultrawalls.png" width="72" height="72" alt="UltraWalls app icon" loading="lazy" decoding="async">
-                        <div class="case-body">
-                            <h3>UltraWalls</h3>
-                            <p class="case-type">Wallpapers for iPhone</p>
-                            <p>Premium wallpapers presented through a simple, product-first interface built for iPhone.</p>
-                        </div>
-                        <a class="arrow-link" href="https://apps.apple.com/ma/app/ultrawalls/id6771954694" target="_blank" rel="noopener noreferrer">
-                            App Store
-                            <span class="visually-hidden">(opens in a new tab)</span>
-                        </a>
-                    </article>
-                </div>
+                <p class="work-status" id="work-status" role="status">Loading selected work.</p>
+                <div id="work-featured"></div>
+                <div class="case-list" id="work-cases"></div>
+                <noscript>
+                    <p class="work-status">Selected work loads from the published app list and needs JavaScript.</p>
+                </noscript>
             </div>
         </section>
 
@@ -282,6 +229,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="apps.js"></script>
 </body>
 
 </html>

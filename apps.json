@@ -1,0 +1,36 @@
+{
+  "apps": [
+    {
+      "category": "Graphics & Design",
+      "description": "An iOS wallpaper experience built for discovering and enjoying high-quality 4K and live wallpapers, with a polished native experience.",
+      "featured": true,
+      "icon": "assets/icons/sillysmile.png",
+      "id": "6783467232",
+      "name": "SillySmile Live 4K Walls",
+      "platform": "iOS",
+      "url": "https://apps.apple.com/ma/app/sillysmile-live-4k-walls/id6783467232"
+    },
+    {
+      "category": "Photo & Video",
+      "description": "A modern iOS wallpaper app focused on curated visuals, smooth browsing, and a clean native experience.",
+      "featured": false,
+      "icon": "assets/icons/novawalls.png",
+      "id": "6768069268",
+      "name": "NovaWalls",
+      "platform": "iOS",
+      "url": "https://apps.apple.com/ma/app/novawalls/id6768069268"
+    },
+    {
+      "category": "Photo & Video",
+      "description": "A premium wallpaper experience for iPhone, designed around high-quality visuals and a simple, immersive browsing experience.",
+      "featured": false,
+      "icon": "assets/icons/ultrawalls.png",
+      "id": "6771954694",
+      "name": "UltraWalls",
+      "platform": "iOS",
+      "url": "https://apps.apple.com/ma/app/ultrawalls/id6771954694"
+    }
+  ],
+  "generatedAt": "2026-09-27T15:20:37Z",
+  "source": "public-listing"
+}
