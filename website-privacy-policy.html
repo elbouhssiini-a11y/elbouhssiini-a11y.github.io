@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Elbouhssini Studio</title>
+    <meta name="description"
+        content="Privacy Policy for the Elbouhssini Studio website.">
+    <meta name="author" content="Ahmed Elbouhssini">
+    <meta name="theme-color" content="#f5f5f7">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://elbouhssiini-a11y.github.io/website-privacy-policy.html">
+    <script>
+        (function () {
+            try {
+                var key = "portfolio-theme";
+                var pref = localStorage.getItem(key) || "system";
+                var resolved = pref === "dark" || (pref !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)
+                    ? "dark"
+                    : "light";
+                document.documentElement.setAttribute("data-theme", resolved);
+                document.documentElement.setAttribute("data-theme-pref", pref);
+                var themeMeta = document.querySelector('meta[name="theme-color"]');
+                if (themeMeta) themeMeta.setAttribute("content", resolved === "dark" ? "#0b0b0c" : "#f5f5f7");
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <nav class="nav" aria-label="Primary">
+            <a class="logo" href="index.html">El Bouhssini</a>
+            <div class="nav-right">
+                <ul class="nav-links" id="primary-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="apps.html">Apps</a></li>
+                    <li><a href="https://sites.google.com/view/elbouhssini-apps-hub/home" target="_blank" rel="noopener noreferrer">Support</a></li>
+                </ul>
+                <div class="theme-switch">
+                    <label class="visually-hidden" for="theme-select">Appearance</label>
+                    <select id="theme-select" class="theme-select" aria-label="Appearance">
+                        <option value="system">💻 System</option>
+                        <option value="light">☀️ Light</option>
+                        <option value="dark">🌙 Dark</option>
+                    </select>
+                </div>
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
+                    aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main">
+        <header class="page-hero reveal">
+            <h1>Privacy Policy</h1>
+            <p>How the Elbouhssini Studio website handles information.</p>
+        </header>
+
+        <div class="content-panel reveal">
+            <p>
+                This policy applies to the Elbouhssini Studio website at
+                <a href="https://elbouhssiini-a11y.github.io/">elbouhssiini-a11y.github.io</a>.
+                It describes this website only.
+            </p>
+            <p>
+                The site is a static portfolio. It does not ask you to create an account, and it
+                does not sell personal information. Your appearance choice (System, Light, or Dark)
+                is stored in this browser with localStorage so it can be reused on this device.
+                That setting is not sent to a server.
+            </p>
+            <p>
+                If you email
+                <a href="mailto:elbouhssiini@gmail.com">elbouhssiini@gmail.com</a>,
+                the message is used only to reply. The site is hosted on GitHub Pages, which may
+                process standard connection data, such as an IP address, to deliver the pages.
+            </p>
+            <p>
+                Links to the App Store, support, and other third-party services leave this website.
+                Those services have their own privacy policies. This page may be updated when the
+                site changes. Questions can be sent to the email above. The website terms are at
+                <a href="/terms.html">Terms</a>.
+            </p>
+        </div>
+    </main>
+
+    <footer class="site-footer reveal">
+        <div class="footer-inner">
+            <div>
+                <p class="footer-brand">El Bouhssini</p>
+                <p class="footer-tag">Independent iOS Developer</p>
+            </div>
+            <ul class="footer-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apps.html">Apps</a></li>
+                <li><a href="https://sites.google.com/view/elbouhssini-apps-hub/home" target="_blank" rel="noopener noreferrer">Support</a></li>
+            </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ahmed Elbouhssini. All rights reserved.</p>
+                <div class="footer-meta">
+                    <a href="mailto:elbouhssiini@gmail.com">elbouhssiini@gmail.com</a>
+                    <a href="https://elbouhssiini-a11y.github.io" target="_blank" rel="noopener noreferrer">El Bouhssini</a>
+                    <span>Built for GitHub Pages</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
