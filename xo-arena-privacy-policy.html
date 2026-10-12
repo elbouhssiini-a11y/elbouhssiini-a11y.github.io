@@ -8,77 +8,264 @@
     <meta name="description"
         content="Privacy Policy for the XO Arena iOS app. Describes Google AdMob, UMP consent, and data stored on the device.">
     <meta name="author" content="Ahmed Elbouhssini">
-    <meta name="theme-color" content="#f5f5f7">
+    <meta name="theme-color" content="#070b16">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://elbouhssiini-a11y.github.io/xo-arena-privacy-policy.html">
-    <script>
-        (function () {
-            try {
-                var key = "portfolio-theme";
-                var pref = localStorage.getItem(key) || "system";
-                var resolved = pref === "dark" || (pref !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)
-                    ? "dark"
-                    : "light";
-                document.documentElement.setAttribute("data-theme", resolved);
-                document.documentElement.setAttribute("data-theme-pref", pref);
-                var themeMeta = document.querySelector('meta[name="theme-color"]');
-                if (themeMeta) themeMeta.setAttribute("content", resolved === "dark" ? "#0b0b0c" : "#f5f5f7");
-            } catch (e) {}
-        })();
-    </script>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --navy: #070b16;
+            --navy-2: #10182c;
+            --ink: #f4f8fc;
+            --body: #d5deea;
+            --muted: #93a4ba;
+            --cyan: #5adcf3;
+            --purple: #b07bff;
+            --line: rgba(90, 220, 243, 0.28);
+            --card: rgba(255, 255, 255, 0.045);
+            --max: 44rem;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--body);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 1.0625rem;
+            line-height: 1.65;
+            background:
+                radial-gradient(42rem 24rem at 0% -10%, rgba(90, 220, 243, 0.16), transparent 60%),
+                radial-gradient(36rem 22rem at 100% 0%, rgba(176, 123, 255, 0.16), transparent 55%),
+                linear-gradient(180deg, #0c1428 0%, var(--navy) 42%, #090714 100%);
+        }
+
+        a { color: var(--cyan); text-underline-offset: 0.18em; }
+
+        a:hover { color: #dff8ff; }
+
+        a:focus-visible,
+        .skip-link:focus {
+            outline: 2px solid var(--cyan);
+            outline-offset: 3px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            transform: translateY(-120%);
+            background: var(--ink);
+            color: var(--navy);
+            padding: 0.6rem 0.9rem;
+            border-radius: 999px;
+            font-weight: 700;
+            z-index: 5;
+        }
+
+        .skip-link:focus { transform: translateY(0.8rem); }
+
+        .wrap {
+            width: min(var(--max), calc(100% - 2rem));
+            margin-inline: auto;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.1rem 0 0.4rem;
+        }
+
+        .brand {
+            color: var(--ink);
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.92rem;
+        }
+
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem 1.1rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 650;
+        }
+
+        .nav a:hover { color: var(--ink); }
+
+        .hero {
+            padding: 2.4rem 0 1.2rem;
+        }
+
+        .mark {
+            width: 3.4rem;
+            height: 3.4rem;
+            display: grid;
+            place-items: center;
+            border-radius: 1rem;
+            color: var(--ink);
+            font-weight: 800;
+            background:
+                linear-gradient(135deg, rgba(90, 220, 243, 0.2), rgba(176, 123, 255, 0.2));
+            box-shadow: inset 0 0 0 1px var(--line);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            margin: 0 0 0.55rem;
+            color: var(--ink);
+            font-size: clamp(2rem, 6vw, 3.1rem);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .lede {
+            margin: 0;
+            max-width: 36rem;
+            color: var(--body);
+            font-size: 1.12rem;
+        }
+
+        .updated {
+            display: inline-block;
+            margin-top: 1.1rem;
+            color: var(--cyan);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .panel {
+            display: grid;
+            gap: 0.9rem;
+            padding-bottom: 2.5rem;
+        }
+
+        article {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 1.25rem;
+            padding: 1.15rem 1.15rem 1.2rem;
+        }
+
+        h2 {
+            margin: 0 0 0.7rem;
+            color: var(--ink);
+            font-size: 1.28rem;
+            letter-spacing: -0.02em;
+        }
+
+        p { margin: 0 0 0.85rem; }
+
+        p:last-child { margin-bottom: 0; }
+
+        ul {
+            margin: 0 0 0.9rem;
+            padding-left: 1.15rem;
+        }
+
+        li { margin: 0.35rem 0; }
+
+        li::marker { color: var(--cyan); }
+
+        .footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 1.4rem 0 2rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem 1.2rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1rem;
+        }
+
+        .footer a { color: var(--muted); text-decoration: none; }
+
+        .footer a:hover { color: var(--cyan); }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem 1rem;
+            margin-top: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            .topbar { align-items: flex-start; flex-direction: column; }
+            article { padding: 1rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+        }
+    </style>
 </head>
 
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
-        <nav class="nav" aria-label="Primary">
-            <a class="logo" href="index.html">El Bouhssini</a>
-            <div class="nav-right">
-                <ul class="nav-links" id="primary-nav">
+    <header class="wrap">
+        <div class="topbar">
+            <a class="brand" href="index.html">El Bouhssini</a>
+            <nav aria-label="Primary">
+                <ul class="nav">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="apps.html">Apps</a></li>
                     <li><a href="https://sites.google.com/view/elbouhssini-apps-hub/home" target="_blank" rel="noopener noreferrer">Support</a></li>
                 </ul>
-                <div class="theme-switch">
-                    <label class="visually-hidden" for="theme-select">Appearance</label>
-                    <select id="theme-select" class="theme-select" aria-label="Appearance">
-                        <option value="system">💻 System</option>
-                        <option value="light">☀️ Light</option>
-                        <option value="dark">🌙 Dark</option>
-                    </select>
-                </div>
-                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"
-                    aria-label="Open menu">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </nav>
+            </nav>
+        </div>
+        <div class="hero">
+            <div class="mark" aria-hidden="true">XO</div>
+            <h1>XO Arena Privacy Policy</h1>
+            <p class="lede">How the XO Arena app handles information on your device.</p>
+            <p class="updated">Last updated: October 12, 2026</p>
+        </div>
     </header>
 
-    <main id="main">
-        <header class="page-hero reveal">
-            <h1>XO Arena Privacy Policy</h1>
-            <p>How the XO Arena app handles information on your device.</p>
-        </header>
-
-        <div class="content-panel reveal">
-            <p><strong>Last updated: October 12, 2026</strong></p>
+    <main id="main" class="wrap panel">
+        <article>
             <p>
                 This policy applies only to the iOS app XO Arena, developed by Ahmed Elbouhssini.
                 It does not replace the privacy policy for this website, or the privacy policies of any other app.
             </p>
+        </article>
 
+        <article>
             <h2>The app</h2>
             <p>
                 XO Arena is a tic-tac-toe game. You can play against another person, against the computer, or through a campaign.
                 The app does not ask you to create an account, and it does not ask you to type your name, email, or other contact details into the game.
                 Ahmed Elbouhssini does not run a server that receives your game progress.
             </p>
+        </article>
 
+        <article>
             <h2>Information stored on your device</h2>
             <p>
                 XO Arena saves the following in the app’s local storage on your device (Apple’s UserDefaults).
@@ -101,7 +288,9 @@
                 The shop spends coins that were saved on the device. The current app does not use Apple In-App Purchase,
                 and it does not send a purchase to Apple or to a developer server.
             </p>
+        </article>
 
+        <article>
             <h2>Google AdMob</h2>
             <p>
                 XO Arena uses the Google Mobile Ads SDK to show ads from Google AdMob.
@@ -121,7 +310,9 @@
                 <li><a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use its services</a></li>
                 <li><a href="https://support.google.com/admob/answer/6128543">AdMob &amp; AdSense policies on privacy</a></li>
             </ul>
+        </article>
 
+        <article>
             <h2>Consent and privacy choices</h2>
             <p>
                 XO Arena uses Google’s User Messaging Platform (UMP) to request consent information and, when Google requires it, to show a consent form before ads.
@@ -134,26 +325,34 @@
                 More about Google’s consent tools for AdMob on iOS is at
                 <a href="https://developers.google.com/admob/ios/privacy">Google’s AdMob iOS privacy documentation</a>.
             </p>
+        </article>
 
+        <article>
             <h2>Other services</h2>
             <p>
                 Besides Apple’s iOS platform and the local storage described above, the third-party service integrated in the app is Google, through AdMob and UMP.
                 The app does not include a separate analytics or account SDK.
                 This policy page is a static file. If you open it on the web, GitHub Pages hosts it and may process ordinary connection data, such as an IP address, to deliver the page. That hosting is separate from the game.
             </p>
+        </article>
 
+        <article>
             <h2>Children</h2>
             <p>
                 XO Arena does not ask for an account and does not ask you to submit personal details in the game.
                 Ads are requested through Google. Google’s own policies, linked above, describe how Google handles advertising, including settings that can limit ads.
             </p>
+        </article>
 
+        <article>
             <h2>Changes</h2>
             <p>
                 If this policy changes, the “Last updated” date at the top of this page will change.
                 The current page describes the app as implemented on October 12, 2026, including test AdMob units.
             </p>
+        </article>
 
+        <article>
             <h2>Contact</h2>
             <p>
                 Ahmed Elbouhssini<br>
@@ -162,32 +361,29 @@
             <p>
                 This address is the contact published on this website. Use it for privacy questions about XO Arena.
             </p>
-        </div>
+        </article>
     </main>
 
-    <footer class="site-footer reveal">
-        <div class="footer-inner">
-            <div>
-                <p class="footer-brand">El Bouhssini</p>
-                <p class="footer-tag">Independent iOS Developer</p>
-            </div>
-            <ul class="footer-nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="apps.html">Apps</a></li>
-                <li><a href="https://sites.google.com/view/elbouhssini-apps-hub/home" target="_blank" rel="noopener noreferrer">Support</a></li>
-            </ul>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Ahmed Elbouhssini. All rights reserved.</p>
-                <div class="footer-meta">
-                    <a href="mailto:elbouhssiini@gmail.com">elbouhssiini@gmail.com</a>
-                    <a href="https://elbouhssiini-a11y.github.io">El Bouhssini</a>
-                    <span>Built for GitHub Pages</span>
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-row">
+                <div>
+                    <strong>El Bouhssini</strong><br>
+                    Independent iOS Developer
                 </div>
+                <nav aria-label="Footer">
+                    <a href="index.html">Home</a>
+                    <a href="apps.html">Apps</a>
+                    <a href="https://sites.google.com/view/elbouhssini-apps-hub/home" target="_blank" rel="noopener noreferrer">Support</a>
+                </nav>
+            </div>
+            <div class="meta">
+                <span>&copy; 2026 Ahmed Elbouhssini. All rights reserved.</span>
+                <a href="mailto:elbouhssiini@gmail.com">elbouhssiini@gmail.com</a>
+                <a href="https://elbouhssiini-a11y.github.io">El Bouhssini</a>
             </div>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 
 </html>
