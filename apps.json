@@ -25,6 +25,16 @@
       "url": "https://apps.apple.com/ma/app/novawalls/id6768069268"
     },
     {
+      "category": "Graphics & Design",
+      "description": "Draw with AR using templates, gallery photos, and text art. Create stunning sketches faster and easier.",
+      "featured": false,
+      "icon": "assets/icons/6787570413.jpg",
+      "id": "6787570413",
+      "name": "SketchAR Pro",
+      "platform": "iOS",
+      "url": "https://apps.apple.com/ma/app/sketchar-pro/id6787570413"
+    },
+    {
       "category": "Photo & Video",
       "description": "A premium wallpaper experience for iPhone, designed around high-quality visuals and a simple, immersive browsing experience.",
       "featured": false,
@@ -47,6 +57,6 @@
       "url": "https://apps.apple.com/ma/app/wallora-glass/id6805629958"
     }
   ],
-  "generatedAt": "2026-10-17T10:45:30Z",
+  "generatedAt": "2026-11-06T14:17:36Z",
   "source": "app-store-connect"
 }
